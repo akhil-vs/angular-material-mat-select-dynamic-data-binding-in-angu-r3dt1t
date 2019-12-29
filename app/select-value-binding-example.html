@@ -1,0 +1,45 @@
+<div>
+  <div>{{educationInfo.aa}}</div>
+  <div>{{educationInfo.bb}}</div>
+  <div>{{educationInfo.cc}}</div>
+  <button (click)="editInfo(educationInfo)">Edit</button>
+</div>
+
+
+
+<mat-form-field>
+  <mat-select placeholder="Select Level of Education" name="education_level" (selectionChange)="educationLevelChangeAction(education_level)" [(ngModel)]="education_level" >
+    <mat-option *ngFor="let education of educationList" [value]="education.educationLevelName" >{{ education.educationLevelName }}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-select placeholder="Select Exam/Degree Title" (selectionChange)="degreeLevelChangeAction(exam_title)" name="exam_title" [(ngModel)]="exam_title">
+    <mat-option *ngFor="let degreeTitle of degreeTitleList" [value]="degreeTitle.degTitle">{{ degreeTitle.degTitle }}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<mat-form-field>
+  <mat-select placeholder="Select Deg Details" name="deg_details" [(ngModel)]="deg_detail">
+    <mat-option *ngFor="let degreeTitle of degreeDetailList" [value]="degreeTitle">{{ degreeTitle }}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-select [(ngModel)]="gender">
+    <mat-option *ngFor="let gender of genderList" [value]="gender">{{ gender }}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+
+<p>You selected: {{education_level}}  {{exam_title}} {{gender}}</p>
+
+
+
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
